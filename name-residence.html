@@ -4,14 +4,16 @@
 
   </head>
   <body>
+    <button onclick="myFunction()">get it to say Hello</button>
+    <p id="text"></p>
     <script>
-      function name() {
-        prompt("What is your name?");
+      function myFunction() {
+        var person = prompt("Please enter your name");
+        var residence = prompt("Where do you live?");
+        if (person != null, residence != null){
+        document.getElementById('text').innerHTML = "Hello " + person + " from " + residence + "!"
       }
-      function residence() {
-        prompt("Where do you live?");
-      }
-      alert("Hello" name "from" residence"!");
+    }
     </script>
   </body>
 </html>

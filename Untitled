@@ -2,14 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <title></title>
   </head>
   <body>
-    <h1><center>JS-Blue Fall<br>
-    Sean Ma</center></h1>
-    <center><h3>Week 1</h3></center><br>
-    <p>   This week I made a program that asks you what your name is and where
-      you are from, and then says "Hello (what your name is) from (where you are from)!"
-      Also, for extra credit I made a Mad Lib that takes words you put in and makes them into a Mad Lib.</p>
+
+    <script>
+      function game() {
+        alert("You are a Secret Agent looking for classified information in an enemy base.")
+        var name = prompt("What is your code name?")
+        var door = prompt("Alright " + name + ", you are at the entrace, how do you get in, kick down the door of pick the lock?")
+        var trap1 = prompt("Now you're in. You can see a pit trap, do you try to jump it or trigger it with a rock and find a way to cross it?")
+        var trap2 = prompt("Great jump! Now you see a locked safe, which probobly has the information. Do you figure out the ")
+      }
+    </script>
   </body>
 </html>
