@@ -5,7 +5,6 @@
     <title></title>
   </head>
   <body>
-    <button onclick="game()" name="button">Click to play Rock Paper Scicors Lizard Spock</button>
     <script>
       function game() {
         var p1 = prompt("Player 1");
@@ -50,8 +49,23 @@
           alert("Spock vaporizes Rock. Player 1 wins!");
         }else if (p2="spock",p1="scissors") {
           alert("Spock smashes Scissors. PlayerPlayer 1 wins!");
+        }else if (p1="rock",p2="rock") {
+          alert("It's a tie!");
+        }else if (p1="paper",p2="paper") {
+          alert("It's a tie!");
+        }else if (p1="scissors",p2="scissors") {
+          alert("It's a tie!");
+        }else if (p1="lizard",p2="lizard") {
+          alert("It's a tie!");
+        }else if (p1="spock",p2="spock") {
+          alert("It's a tie!");
+        }else{
+          alert("Something went wrong! Try again.");
+          game();
         }
       }
     </script>
+    <button onclick="game()" name="button">Click to play Rock Paper Scicors Lizard Spock with a friend.</button>
+    <button onclick="game()" name="button">Click to play Rock Paper Scicors Lizard Spock against yourself.</button>
   </body>
 </html>
