@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+      function game() {
+        alert("You are a Secret Agent looking for classified information in an enemy base.");
+        var name = prompt("What is your code name?");
+
+          var door = prompt("Alright " + name + ", you are at the entrace, how do you get in, kick down the door of pick the lock?");
+
+        function trapFunc(){
+          var trap1 = prompt("Now you're in. You can see a pit trap, do you try to jump it or trigger it with a rock and find a way to cross it?");
+        }
+        function safe() {
+          var trap2 = prompt("Great jump! Now you see a locked safe, which probobly has the information. Do you figure out the code or try to bust in?");
+      }
+      if(door== "pick the lock"){
+          trapFunc();
+        }else{
+          alert("They enemies found you! You die.");
+          game();
+        }
+        if (trap1=="jump it") {
+          safe();
+        }else{
+          alert("The rock fell and made a sound and the enemies discover you! You die.");
+          game();
+        }
+        if (trap2=="bust in") {
+          alert("You got the information! Now how to get it back....");
+        }else {
+
+        }
+      }
+      game();
+    </script>
+  </body>
+</html>
