@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <center><h1>Mad Lib</h1><button onclick="myFunction()">get it to say Hello</button>
+      <h4><p>Press the button to start entering words for the Mad Lib</p></h4>
+      <button onclick="myFunction()">Start Mad Lib</button>
+      <p id="text">It was a (adjective), cold November day. I woke up to the (adjective) smell of (type of bird) roasting in the (room) dowmstairs. I (verb, past tense) down the stairs to see if I could help (verb) the dinner. My mom said,"see if (relative's name) needs a fresh (noun)." So I caried a tray of glasses full of (a liquid) into the room. When I got there , I couldn't belive my (body part, plural)! There were (plural noun) (verb, ends in -ing) on the (noun)!</p></center>
+      <script>
+        function myFunction() {
+          var adj1 = prompt("Enter an adjective.");
+          var adj2 = prompt("Enter an adjective.");
+          var tob = prompt("Enter a type of bird.");
+          var room = prompt("Enter a room in the house.");
+          var vrb1 = prompt("Enter a past tense verb");
+          var vrb2 = prompt("Enter a verb.");
+          var rn = prompt("Enter a relative's name.");
+          var adj3 = prompt("Enter an adjective.");
+          var non1 = prompt("Enter a noun.");
+          var lqd = prompt("Enter a liquid.");
+          var bdyprt = prompt("Enter a plural body part.");
+          var non2 = prompt("Enter a plural noun.");
+          var vrb3 = prompt("Enter a verb ending in -ing.");
+          var non3 = prompt("Enter a noun.");
+          if (adj1 != null, adj2 != null, tob != null, room != null, vrb1 != null, vrb2 != null, rn != null, adj3 != null, non1 != null, lqd != null, bdyprt != null, vrb3 != null, non2 != null){
+          document.getElementById('text').innerHTML = "It was a"+ adj1 +", cold November day. I woke up to the "+ adj2 +" smell of " + tob + " roasting in the "+ room +" downstairs. I "+ vrb1 +" down the stairs to see if I could help "+ vrb2 +" the dinner. My mom said, 'See if " + rn + " needs a fresh "+ non1 +".' So I carried a tray of glassed full of "+ lqd +" into the rooom. When I got there, I couldn't belive my " + bdyprt +"! There were " + non2 +" "+ vrb3 +" on the "+ non3 +"!"
+        }
+      }
+      </script>
+    </div>
+  </body>
+</html>

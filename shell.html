@@ -6,21 +6,27 @@
   </head>
   <body>
     <script type="text/javascript">
-      function genRandomShell(){
-        //return ramdom #between 1-3
-        return Math.Floor(3 * Math.Random);
-      }
-      //ask player what shell
-      var shellChoice = prompt ("What shell is the money in: 1, 2, or 3");
-      //generate random shell
-      var ramdomShell=genRandomShell();
-      //test weather right shell
-      if (choice === ramdomShell){
+      x==0;
+      var y=prompt("How many rounds?");
+     while (x<y) {
+       function genRandomShell(){
+         //return ramdom #between 1-3
+         return Math.Floor(3 * Math.Random);
+       }
+       //ask player what shell
+       var shellChoice = prompt ("What shell is the money in: 1, 2, or 3");
+       //generate random shell
+       var ramdomShell=genRandomShell();
+       //test weather right shell
+       if (choice === ramdomShell){
+         alert("You win!")
 
-      }else{
+       }else{
+         alert("You lose.")
+       }
+       //
+     }
 
-      }
-      //
     </script>
   </body>
 </html>

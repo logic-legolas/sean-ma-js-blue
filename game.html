@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <script src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  </head>
+  <body>
+    <script>
+      function level2(){
+        var player;
+        function createPlayer(){
+          player = Crafty.e("2D, Twoway, DOM, Color, Gravity, Solid, Collision, Player, Motion");
+          player.attr({x: 10, y: 500, w: 50, h: 50});
+          player.color("blue");
+          player.twoway(1000);
+          player.gravity("Platform");
+        }
+        createPlayer();
+
+        var platform1 = Crafty.e("Platform, 2D, DOM, Color");
+        var platform2= Crafty.e("Platform, 2D, DOM, Color");
+        var platform3= Crafty.e("Platform, 2D, DOM, Color");
+        var platform4= Crafty.e("Platform, 2D, DOM, Color");
+        var platform5= Crafty.e("Platform, 2D, DOM, Color");
+        var platform6= Crafty.e("Platform, 2D, DOM, Color");
+        var platform7= Crafty.e("Platform, 2D, DOM, Color");
+
+        platform1.attr({x: 10, y: 600, w: 200, h: 10});
+        platform1.color("blue");
+        platform2.attr({x:425, y: 500, w: 200, h: 10});
+        platform2.color("blue");
+        platform3.attr({x: 1000, y: 550, w: 200, h: 10});
+        platform3.color("blue");
+        platform4.attr({x: Crafty.viewport.width-200, y: 350, w: 200, h: 10});
+        platform4.color("blue");
+        platform5.attr({x: 700, y:175, w: 200, h: 10});
+        platform5.color("blue");
+        platform6.attr({x: 300, y:225, w: 200, h: 10});
+        platform6.color("blue");
+        platform7.attr({x: 50, y:75, w: 200, h: 10});
+        platform7.color("blue");
+
+        var goal = Crafty.e("2D, DOM, Color, Solid, Collision, Platform");
+        goal.attr({x: 50, y: 25, w: 50, h: 50});
+        goal.onHit("Player", win1);
+        goal.color("green");
+
+        var lose = Crafty.e("2D, DOM, Collision, Solid")
+        lose.attr({w:Crafty.viewport.width, h:10, y:Crafty.viewport.height, x:0})
+        lose.onHit("Player", die);
+
+        function win1(){
+          alert("You win! Next level.");
+          start2();
+        }
+
+        function die(){
+          var b= 0;
+          while (b<1){
+            alert("You Died! Restarting.");
+            b++;
+            player.destroy();
+            createPlayer();
+          }
+        }
+      }
+
+      function level1(){
+        var player;
+        function createPlayer(){
+          player = Crafty.e("2D, Twoway, DOM, Color, Gravity, Solid, Collision, Player, Motion");
+          player.attr({x: 10, y: 500, w: 50, h: 50});
+          player.color("blue");
+          player.twoway(1000);
+          player.gravity("Platform");
+        }
+        createPlayer();
+
+        var platform1 = Crafty.e("Platform, 2D, DOM, Color");
+        var platform2= Crafty.e("Platform, 2D, DOM, Color");
+        var platform3= Crafty.e("Platform, 2D, DOM, Color");
+        var platform4= Crafty.e("Platform, 2D, DOM, Color");
+        var platform5= Crafty.e("Platform, 2D, DOM, Color");
+        var platform6= Crafty.e("Platform, 2D, DOM, Color");
+        var platform7= Crafty.e("Platform, 2D, DOM, Color");
+
+        platform1.attr({x: 10, y: 600, w: 200, h: 10});
+        platform1.color("blue");
+        platform2.attr({x:425, y: 500, w: 200, h: 10});
+        platform2.color("blue");
+        platform3.attr({x: 1000, y: 550, w: 200, h: 10});
+        platform3.color("blue");
+        platform4.attr({x: Crafty.viewport.width-200, y: 350, w: 200, h: 10});
+        platform4.color("blue");
+        platform5.attr({x: 700, y:175, w: 200, h: 10});
+        platform5.color("blue");
+        platform6.attr({x: 300, y:225, w: 200, h: 10});
+        platform6.color("blue");
+        platform7.attr({x: 50, y:75, w: 200, h: 10});
+        platform7.color("blue");
+
+        var goal = Crafty.e("2D, DOM, Color, Solid, Collision, Platform");
+        goal.attr({x: 50, y: 25, w: 50, h: 50});
+        goal.onHit("Player", win2);
+        goal.color("green");
+
+        var lose = Crafty.e("2D, DOM, Collision, Solid")
+        lose.attr({w:Crafty.viewport.width, h:10, y:Crafty.viewport.height, x:0})
+        lose.onHit("Player", die);
+
+        function win2(){
+          alert("You win! Next level.");
+          level3();
+        }
+
+        function die(){
+          var b= 0;
+          while (b<1){
+            alert("You Died! Restarting.");
+            b++;
+            player.destroy();
+            createPlayer();
+          }
+        }
+      }
+      window.onload = level1;
+    </script>
+  </body>
+</html>

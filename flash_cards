@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Helvetica;
+        text-align: center;
+      }
+      #card {
+        width: 500px;
+        padding: 120px 0;
+        margin: 50px auto;
+        border: 5px solid darkseagreen;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card"></div>
+    <input type="text" id="answer" autofocus/>
+    <button onclick="check();">Answer</button>
+
+    <script>
+      var currentCard = -1;
+      var a = Math.Floor(100*Math.Random());
+      var b = Math.Floor(100*Math.Random());
+      var c = Math.Floor(10*Math.Random());
+      var d = Math.Floor(10*Math.Random());
+      var e = Math.Floor(10*Math.Random());
+      var f = Math.Floor(10*Math.Random());
+
+      var questions = [
+        "What is "+a+"+"+b+"?",
+        "What is "+c+"*"+d+"?",
+        "What is "+e+"*"+f+"?"
+      ];
+      var answers = [
+        a+b,
+        c*d,
+        e*f
+      ];
+      function check() {
+        var correctAnswer = answers[currentCard];
+        var answerInput = document.getElementById("answer");
+        var answer = answerInput.value;
+        if (answer == correctAnswer) {
+          alert("Correct!")
+        } else {
+          alert("Incorrect!")
+        }
+        showNextCard();
+      }
+      function showNextCard() {
+        if (currentCard < questions.length - 1) {
+          currentCard = currentCard + 1;
+          var cardDiv = document.getElementById("card");
+          cardDiv.textContent = questions[currentCard];
+          var answerInput = document.getElementById("answer");
+          answerInput.value = "";
+        }
+      }
+      showNextCard();
+    </script>
+  </body>
+</html>

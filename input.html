@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+          function go(){
+            var x = document.getElementById("foo");
+            var y = document.getElementById("bar");
+            y.textContent="Hello "+x.value+"!"
+          }
+    </script>
+  </head>
+  <body>
+    <button onclick="go()" type="button" name="button"></button>
+    <input id="foo">
+    <p id="bar"></p>
+  </body>
+</html>
