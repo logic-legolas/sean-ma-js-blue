@@ -6,14 +6,14 @@
     <script>
       function level2(){
         var player;
-        function createPlayer(){
-          player = Crafty.e("2D, Twoway, DOM, Color, Gravity, Solid, Collision, Player, Motion");
+        function createPlayer2(){
+          player = Crafty.e("2D, Twoway, DOM, Image, Gravity, Solid, Collision, Player, Motion");
           player.attr({x: 10, y: 500, w: 50, h: 50});
-          player.color("blue");
           player.twoway(1000);
           player.gravity("Platform");
+          player.image("https://upload.wikimedia.org/wikipedia/commons/e/ec/Happy_smiley_face.png");
         }
-        createPlayer();
+        createPlayer2();
 
         var platform1 = Crafty.e("Platform, 2D, DOM, Color");
         var platform2= Crafty.e("Platform, 2D, DOM, Color");
@@ -49,7 +49,7 @@
 
         function win1(){
           alert("You win! Next level.");
-          start2();
+          level3();
         }
 
         function die(){
@@ -58,20 +58,35 @@
             alert("You Died! Restarting.");
             b++;
             player.destroy();
-            createPlayer();
+            createPlayer2();
           }
         }
       }
 
       function level1(){
+        Crafty.init();
         var player;
         function createPlayer(){
-          player = Crafty.e("2D, Twoway, DOM, Color, Gravity, Solid, Collision, Player, Motion");
-          player.attr({x: 10, y: 500, w: 50, h: 50});
-          player.color("blue");
-          player.twoway(1000);
+          player = Crafty.e("2D, Twoway, DOM, Color, Image, Gravity, Solid, Collision, Player, Motion");
+          player.attr({x: 10, y: 500, w: 0, h: 0});
+          player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+          player.twoway(200);
           player.gravity("Platform");
-        }
+
+            player.bind('KeyDown', function(e) {
+              if(e.key == Crafty.keys.LEFT_ARROW) {
+                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+              } else if (e.key == Crafty.keys.RIGHT_ARROW) {
+                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+              } else if (e.key == Crafty.keys.UP_ARROW) {
+                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+              } else if (e.key == Crafty.keys.DOWN_ARROW) {
+                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+              }else if(e.key == Crafty.keys.SPACE){
+                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+              }
+            });
+          }
         createPlayer();
 
         var platform1 = Crafty.e("Platform, 2D, DOM, Color");
@@ -99,16 +114,29 @@
 
         var goal = Crafty.e("2D, DOM, Color, Solid, Collision, Platform");
         goal.attr({x: 50, y: 25, w: 50, h: 50});
-        goal.onHit("Player", win2);
+        goal.onHit("Player", win);
         goal.color("green");
 
         var lose = Crafty.e("2D, DOM, Collision, Solid")
         lose.attr({w:Crafty.viewport.width, h:10, y:Crafty.viewport.height, x:0})
         lose.onHit("Player", die);
 
-        function win2(){
-          alert("You win! Next level.");
-          level3();
+        function win(){
+          var v=0;
+          while(v<1){
+            alert("You win! Next level.");
+            player.destroy();
+            goal.destroy;
+            platform1.destroy();
+            platform2.destroy();
+            platform3.destroy();
+            platform4.destroy();
+            platform5.destroy();
+            platform6.destroy();
+            platform7.destroy();
+            level2();
+            v++;
+          }
         }
 
         function die(){
