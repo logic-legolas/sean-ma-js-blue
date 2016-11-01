@@ -14,12 +14,14 @@
           var door = prompt("Alright " + name + ", you are at the entrace, how do you get in, kick down the door of pick the lock?");
 
         function trapFunc(){
-          var trap1 = prompt("Now you're in. You can see a pit trap, do you try to jump it or trigger it with a rock and find a way to cross it?");
+          var trap1 = prompt("Now you're in. You can see a pit trap, you could"++"
+          try to jump it or trigger it with a rock and find a way to cross it,"++"
+          or, you could look through some papers on a desk.");
         }
         function safe() {
           var trap2 = prompt("Great jump! Now you see a locked safe, which probobly has the information. Do you figure out the code or try to bust in?");
       }
-      if(door== "pick the lock"){
+      if(door=== "pick the lock"){
           trapFunc();
         }else{
           alert("They enemies found you! You die.");
@@ -27,14 +29,22 @@
         }
         if (trap1=="jump it") {
           safe();
+        }else if (trap1 ==="look through papers") {
+          alert("You found a string of numbers, may be useful...");
+          var hasKey = true;
+          trap1();
         }else{
           alert("The rock fell and made a sound and the enemies discover you! You die.");
           game();
         }
-        if (trap2=="bust in") {
+        if (trap2==="figure out the code", hasKey === true) {
           alert("You got the information! Now how to get it back....");
+        }else if (trap2==="figure out the code", hasKey===false ) {
+          alert("Wrong combo. Maybe someone has it on their desk. Time to back to the desk.")
+          trap1();
         }else {
-
+          alert("Busting in sounds the alarm. You die!");
+          game();
         }
       }
       game();

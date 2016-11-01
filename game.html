@@ -75,7 +75,8 @@
 
             player.bind('KeyDown', function(e) {
               if(e.key == Crafty.keys.LEFT_ARROW) {
-                player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
+                player.image("char3");
+
               } else if (e.key == Crafty.keys.RIGHT_ARROW) {
                 player.image("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Face-tongue.svg/48px-Face-tongue.svg.png");
               } else if (e.key == Crafty.keys.UP_ARROW) {
@@ -88,6 +89,8 @@
             });
           }
         createPlayer();
+        Crafty.audio.add("yay","yay.mp3");
+        Crafty.audio.add("lose","chainsaw.wav");
 
         var platform1 = Crafty.e("Platform, 2D, DOM, Color");
         var platform2= Crafty.e("Platform, 2D, DOM, Color");
@@ -124,6 +127,7 @@
         function win(){
           var v=0;
           while(v<1){
+            Crafty.audio.play("yay");
             alert("You win! Next level.");
             player.destroy();
             goal.destroy;
@@ -142,6 +146,7 @@
         function die(){
           var b= 0;
           while (b<1){
+            Crafty.audio.play("lose");
             alert("You Died! Restarting.");
             b++;
             player.destroy();
